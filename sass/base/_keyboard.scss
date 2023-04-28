@@ -10,8 +10,10 @@
 }
 
 .keyboard__layout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
   max-width: 947px;
-  height: 321px;
   background-color : $color-layout;
   border-radius: 16px;
   padding: 15px;
@@ -20,7 +22,7 @@
 .keyboard__row {
   display: flex;
   column-gap: 5px;
-  margin-bottom: 5px;
+  row-gap: 5px;
 }
 
 .key {

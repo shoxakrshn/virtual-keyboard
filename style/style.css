@@ -18,8 +18,10 @@
 }
 
 .keyboard__layout {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
   max-width: 947px;
-  height: 321px;
   background-color: #e4ddd3;
   border-radius: 16px;
   padding: 15px;
@@ -29,7 +31,7 @@
   display: flex;
   -moz-column-gap: 5px;
        column-gap: 5px;
-  margin-bottom: 5px;
+  row-gap: 5px;
 }
 
 .key {
