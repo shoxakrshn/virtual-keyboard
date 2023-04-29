@@ -8,6 +8,10 @@
   margin: 0 auto;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 .keyboard {
   display: flex;
   justify-content: center;

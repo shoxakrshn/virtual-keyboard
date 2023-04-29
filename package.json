@@ -2,7 +2,7 @@
   "name": "virtual-keyboard",
   "version": "1.0.0",
   "description": "RS School Week 8",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
