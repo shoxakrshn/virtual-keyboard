@@ -6,7 +6,7 @@ import hintSubtitile from './scripts/components/hint.js';
 
 const state = {
   value: '',
-  lang: 'en',
+  lang: localStorage.getItem('lang') || 'en',
   capsLock: false,
   shift: false,
   position: 0,
@@ -65,7 +65,7 @@ const handleKeyDown = (e) => {
 
     case 'CapsLock':
       state.capsLock = true;
-      render();
+      setTimeout(() => render(), 100);
       break;
 
     case 'Shift':
@@ -108,6 +108,7 @@ const handleKeyDown = (e) => {
 
   if (e.key === 'Control' && state.pressed) {
     state.lang = state.lang === 'en' ? 'ru' : 'en';
+    localStorage.setItem('lang', state.lang);
     render();
     state.pressed = false;
   }
@@ -119,7 +120,7 @@ const handleKeyUp = (e) => {
   switch (e.key) {
     case 'CapsLock':
       state.capsLock = false;
-      render();
+      setTimeout(() => render(), 100);
       break;
 
     case 'Shift':

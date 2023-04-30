@@ -78,6 +78,7 @@ export default (keyboard, textAreaInput, state, render) => {
   fnBtn.addEventListener('click', () => {
     const { lang } = state;
     state.lang = lang === 'en' ? 'ru' : 'en';
+    localStorage.setItem('lang', state.lang);
     render();
   });
 
