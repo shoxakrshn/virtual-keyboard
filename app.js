@@ -60,7 +60,7 @@ const handleKeyDown = (e) => {
 
     case 'CapsLock':
       state.capsLock = true;
-      render();
+      setTimeout(() => render(), 100);
       break;
 
     case 'Shift':

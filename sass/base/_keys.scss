@@ -9,6 +9,8 @@
   color: #f7f5f8;
   box-sizing: border-box;
   transition: text-shadow 300ms ease-out;
+  transition: background-color 250ms ease-out;
+  transition: transform 250ms ease-out;
 
   &:hover {
     text-shadow: 0 0 10px #ffff,
@@ -86,6 +88,7 @@
 
 .pressed {
   background-color: #3d3e43;
+  transform: scale(0.95);
 }
 
 .uppercase {
