@@ -12,12 +12,16 @@ export default (state, input, render) => {
       input.value = state.value;
     }
 
-
-
     switch (e.key) {
       case 'Backspace':
         state.value = state.value.slice(0, -1);
         input.value = state.value;
+        break;
+
+      case 'Enter':
+        state.value += '\n';
+        input.value = state.value;
+        input.focus();
         break;
 
       default: break;

@@ -5,7 +5,7 @@ import mouseHandler from './scripts/mouseHandler.js';
 import keyHandler from './scripts/keyHandler.js';
 
 const state = {
-  value: 'hello\nhello',
+  value: '',
   lang: 'en',
   capsLock: false,
   shift: false,
