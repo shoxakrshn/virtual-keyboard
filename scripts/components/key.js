@@ -6,7 +6,7 @@ const createComponent = (row, language, state) => {
 
   key.forEach((item, index) => {
     const element = createElement('div', ['keyboard__key', 'key']);
-    element.textContent = state.capsLock && !state.shift ? item.toUpperCase() : item;
+    element.textContent = state.capsLock ? item.toUpperCase() : item;
     element.dataset.key = code[index];
 
     switch (item) {

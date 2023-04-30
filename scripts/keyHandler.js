@@ -27,13 +27,14 @@ export default (state, input, render) => {
       case 'Tab':
         state.value += '    ';
         input.value = state.value;
+        input.focus();
         break;
-      
+
       default: break;
     }
   });
 
-  document.addEventListener('keyup', () => {
+  document.addEventListener('keyup', (e) => {
     document.querySelectorAll('.key').forEach((key) => key.classList.remove('pressed'));
   });
 };
