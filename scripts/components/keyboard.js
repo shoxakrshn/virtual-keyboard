@@ -14,11 +14,11 @@ const createComponent = (state) => {
   const fourthdRow = createElement('div', ['keyboard__row']);
   const metaRow = createElement('div', ['keyboard__row']);
 
-  createKey(firstRow, language[lang].digitRow);
-  createKey(secondRow, language[lang].letterRowFirst);
-  createKey(thirdRow, language[lang].letterRowMiddle);
-  createKey(fourthdRow, language[lang].letterRowLast);
-  createKey(metaRow, language.meta);
+  createKey(firstRow, language[lang].digitRow, state);
+  createKey(secondRow, language[lang].letterRowFirst, state);
+  createKey(thirdRow, language[lang].letterRowMiddle, state);
+  createKey(fourthdRow, language[lang].letterRowLast, state);
+  createKey(metaRow, language.meta, state);
 
   keyboardLayout.append(firstRow, secondRow, thirdRow, fourthdRow, metaRow);
   keyboardBlock.append(keyboardLayout);

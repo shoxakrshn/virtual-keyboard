@@ -8,8 +8,8 @@
   margin: 0 auto;
 }
 
-.lowercase {
-  text-transform: lowercase;
+.uppercase {
+  text-transform: uppercase;
 }
 
 .keyboard {

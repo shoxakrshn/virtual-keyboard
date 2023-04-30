@@ -1,12 +1,12 @@
 import { createElement } from '../common.js';
 
-const createComponent = (row, language) => {
+const createComponent = (row, language, state) => {
   const arrowContainer = createElement('div', ['keyboard__key', 'arrow-container']);
   const { key, code } = language;
 
   key.forEach((item, index) => {
     const element = createElement('div', ['keyboard__key', 'key']);
-    element.textContent = item;
+    element.textContent = state.capsLock && !state.shift ? item.toUpperCase() : item;
     element.dataset.key = code[index];
 
     switch (item) {
@@ -39,7 +39,7 @@ const createComponent = (row, language) => {
         break;
 
       case 'Control':
-        element.classList.add('key_service', 'key_service');
+        element.classList.add('key_service', 'key_service-center');
         element.textContent = 'control';
         break;
 
@@ -50,7 +50,7 @@ const createComponent = (row, language) => {
 
       case 'Meta':
         element.classList.add('key_service', 'key_cmd');
-        element.textContent = 'command';
+        element.textContent = '⌘ command';
         break;
 
       case 'ArrowLeft':
@@ -80,7 +80,8 @@ const createComponent = (row, language) => {
         break;
 
       case 'fn':
-        element.classList.add('key_service');
+        element.classList.add('key_service', 'key_fn');
+        element.textContent = 'fn';
         break;
 
       default:
