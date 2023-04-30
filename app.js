@@ -2,7 +2,7 @@ import { createElement, metaKeys } from './scripts/common.js';
 import createTextArea from './scripts/components/textarea.js';
 import createKeyboard from './scripts/components/keyboard.js';
 import mouseHandler from './scripts/mouseHandler.js';
-import keyHandler from './scripts/keyHandler.js';
+import hintSubtitile from './scripts/components/hint.js';
 
 const state = {
   value: '',
@@ -13,7 +13,7 @@ const state = {
   pressed: false,
 };
 
-const render = (state) => {
+const render = () => {
   const { body } = document;
   body.innerHTML = '';
   const main = createElement('main', ['main-wrap']);
@@ -23,7 +23,7 @@ const render = (state) => {
 
   mouseHandler(keyboard, textAreaInput, state, render);
 
-  main.append(textArea, keyboard);
+  main.append(textArea, keyboard, hintSubtitile);
   body.append(main);
   textAreaInput.focus();
 };
@@ -60,14 +60,14 @@ const handleKeyDown = (e) => {
 
     case 'CapsLock':
       state.capsLock = true;
-      render(state);
+      render();
       break;
 
     case 'Shift':
       state.shift = !state.shift;
       state.lang = `${state.lang.slice(0, 2)}Shift`;
       console.log('down', state);
-      render(state);
+      render();
       break;
 
     case 'ArrowLeft':
@@ -86,13 +86,15 @@ const handleKeyDown = (e) => {
         textAreaInput.selectionStart = state.position;
         textAreaInput.selectionEnd = state.position;
       }
-/*
+      break;
+    /*
     case 'Meta':
       state.lang = state.lang === 'en' ? 'ru' : 'en';
       render(state);
       break;
-*/
-    default: break;
+    */
+    default:
+      break;
   }
 
   if (e.key === 'Alt') {
@@ -129,7 +131,7 @@ const handleKeyUp = (e) => {
 document.addEventListener('keydown', handleKeyDown);
 document.addEventListener('keyup', handleKeyUp);
 
-render(state);
+render();
 
 /*
 document.addEventListener('keydown', (e) => {

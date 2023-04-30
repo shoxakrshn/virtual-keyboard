@@ -1,6 +1,6 @@
 import { metaKeys } from './common.js';
 
-export default (state, input, render) => {
+export default (state, input) => {
   document.addEventListener('keydown', (e) => {
     e.preventDefault();
 
@@ -34,7 +34,7 @@ export default (state, input, render) => {
     }
   });
 
-  document.addEventListener('keyup', (e) => {
+  document.addEventListener('keyup', () => {
     document.querySelectorAll('.key').forEach((key) => key.classList.remove('pressed'));
   });
 };

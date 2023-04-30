@@ -8,8 +8,8 @@ export default (keyboard, textAreaInput, state, render) => {
   const fnBtn = keyboard.querySelector('.key_fn');
   const shiftBtn = keyboard.querySelectorAll('.key_shift');
 
-  //const upBtn = keyboard.querySelector('.key_arrow-up');
-  //const downBtn = keyboard.querySelector('.key_arrow-down');
+  //  const upBtn = keyboard.querySelector('.key_arrow-up');
+  //  const downBtn = keyboard.querySelector('.key_arrow-down');
 
   const keys = keyboard.querySelectorAll('.key');
   keys.forEach((key) => {
@@ -34,16 +34,19 @@ export default (keyboard, textAreaInput, state, render) => {
     console.log(value);
     state.value = value.slice(0, -1);
     textAreaInput.value = state.value;
+    textAreaInput.focus();
   });
 
   enterBtn.addEventListener('click', () => {
     state.value += '\n';
     textAreaInput.value = state.value;
+    textAreaInput.focus();
   });
 
   tabBtn.addEventListener('click', () => {
     state.value += '    ';
     textAreaInput.value = state.value;
+    textAreaInput.focus();
   });
 
   state.position = state.value.length;
