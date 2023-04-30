@@ -13,6 +13,14 @@ export default (keyboard, textAreaInput, state, render) => {
 
   const keys = keyboard.querySelectorAll('.key');
   keys.forEach((key) => {
+    key.addEventListener('mousedown', () => {
+      key.classList.add('pressed');
+    });
+
+    key.addEventListener('mouseup', () => {
+      key.classList.remove('pressed');
+    });
+
     key.addEventListener('click', (e) => {
       if (!key.classList.contains('key_service') && !key.classList.contains('key_arrow')) {
         state.value += e.target.textContent;
