@@ -72,13 +72,13 @@ export default (keyboard, textAreaInput, state, render) => {
 
   capsBtn.addEventListener('click', () => {
     state.capsLock = !state.capsLock;
-    render(state);
+    render();
   });
 
   fnBtn.addEventListener('click', () => {
     const { lang } = state;
     state.lang = lang === 'en' ? 'ru' : 'en';
-    render(state);
+    render();
   });
 
   shiftBtn.forEach((shift) => {
@@ -86,14 +86,14 @@ export default (keyboard, textAreaInput, state, render) => {
       state.shift = !state.shift;
       state.lang = `${state.lang.slice(0, 2)}Shift`;
       console.log('down', state);
-      render(state);
+      render();
     });
 
     shift.addEventListener('mouseup', () => {
       state.shift = !state.shift;
       state.lang = state.lang.slice(0, 2);
       console.log('up', state);
-      render(state);
+      render();
     });
   });
 

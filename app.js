@@ -13,18 +13,23 @@ const state = {
   pressed: false,
 };
 
+const main = createElement('main', ['main-wrap']);
+document.body.append(main);
+
 const render = () => {
-  const { body } = document;
-  body.innerHTML = '';
-  const main = createElement('main', ['main-wrap']);
+  //  const { body } = document;
+  //  body.innerHTML = '';
+  const mainBlock = document.querySelector('.main-wrap');
+  mainBlock.innerHTML = '';
+  //  const main = createElement('main', ['main-wrap']);
   const textArea = createTextArea(state);
   const keyboard = createKeyboard(state);
   const textAreaInput = textArea.querySelector('.text-area__input');
 
   mouseHandler(keyboard, textAreaInput, state, render);
 
-  main.append(textArea, keyboard, hintSubtitile);
-  body.append(main);
+  mainBlock.append(textArea, keyboard, hintSubtitile);
+  //  body.append(main);
   textAreaInput.focus();
 };
 
@@ -60,7 +65,7 @@ const handleKeyDown = (e) => {
 
     case 'CapsLock':
       state.capsLock = true;
-      setTimeout(() => render(), 100);
+      render();
       break;
 
     case 'Shift':
@@ -103,7 +108,7 @@ const handleKeyDown = (e) => {
 
   if (e.key === 'Control' && state.pressed) {
     state.lang = state.lang === 'en' ? 'ru' : 'en';
-    render(state);
+    render();
     state.pressed = false;
   }
 };
@@ -114,14 +119,14 @@ const handleKeyUp = (e) => {
   switch (e.key) {
     case 'CapsLock':
       state.capsLock = false;
-      render(state);
+      render();
       break;
 
     case 'Shift':
       state.shift = !state.shift;
       state.lang = state.lang.slice(0, 2);
       console.log('up', state);
-      render(state);
+      render(main);
       break;
 
     default: break;
@@ -132,29 +137,3 @@ document.addEventListener('keydown', handleKeyDown);
 document.addEventListener('keyup', handleKeyUp);
 
 render();
-
-/*
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'CapsLock') {
-    const newCapsLockState = e.getModifierState('CapsLock');
-    if (state.capsLock !== newCapsLockState) {
-      state.capsLock = newCapsLockState;
-      console.log(state);
-      render(state);
-    }
-  }
-  console.log(e.key);
-  console.log(e.getModifierState('CapsLock'));
-});
-
-document.addEventListener('keyup', (e) => {
-  if (e.key === 'CapsLock') {
-    const newCapsLockState = e.getModifierState('CapsLock');
-    if (state.capsLock !== newCapsLockState) {
-      state.capsLock = newCapsLockState;
-      render(state);
-    }
-  }
-});
-
-*/
