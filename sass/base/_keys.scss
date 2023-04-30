@@ -8,9 +8,8 @@
   border-radius: 8px;
   color: #f7f5f8;
   box-sizing: border-box;
-  transition: text-shadow 300ms ease-out;
-  transition: background-color 250ms ease-out;
-  transition: transform 250ms ease-out;
+
+  transition: all 250ms ease-out;
 
   &:hover {
     text-shadow: 0 0 10px #ffff,
@@ -82,7 +81,7 @@
 }
 
 .key_arrow-left {
-  transform: rotate(180deg);
+  //transform: rotate(180deg);
 }
 
 

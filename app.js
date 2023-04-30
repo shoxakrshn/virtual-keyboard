@@ -95,6 +95,7 @@ const handleKeyDown = (e) => {
     /*
     case 'Meta':
       state.lang = state.lang === 'en' ? 'ru' : 'en';
+      localStorage.setItem('lang', state.lang);
       render(state);
       break;
     */

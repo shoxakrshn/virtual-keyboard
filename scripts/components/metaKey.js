@@ -1,12 +1,12 @@
-import { createElement } from '../common.js';
+import createElement from '../common.js';
 
-const createComponent = (row, language, state) => {
+const createComponent = (row, language) => {
   const arrowContainer = createElement('div', ['keyboard__key', 'arrow-container']);
   const { key, code } = language;
 
-  key.forEach((item, index) => {
+  code.forEach((item, index) => {
     const element = createElement('div', ['keyboard__key', 'key']);
-    element.textContent = state.capsLock ? item.toUpperCase() : item;
+    element.textContent = item;
     element.dataset.key = code[index];
 
     switch (item) {
@@ -31,15 +31,12 @@ const createComponent = (row, language, state) => {
         break;
 
       case 'Shift':
-        if (code[index] === 'ShiftRight') {
-          element.classList.add('key_service-right');
-        }
         element.classList.add('key_service', 'key_shift');
         element.textContent = 'shift';
         break;
 
       case 'Control':
-        element.classList.add('key_service', 'key_service-center');
+        element.classList.add('key_service', 'key_service');
         element.textContent = 'control';
         break;
 
@@ -50,17 +47,17 @@ const createComponent = (row, language, state) => {
 
       case 'Meta':
         element.classList.add('key_service', 'key_cmd');
-        element.textContent = '⌘ command';
+        element.textContent = 'command';
         break;
 
       case 'ArrowLeft':
         element.classList.add('key_arrow', 'key_arrow-left');
-        element.textContent = '◀';
+        element.textContent = '►';
         break;
 
       case 'ArrowRight':
         element.classList.add('key_arrow', 'key_arrow-right');
-        element.textContent = '▶';
+        element.textContent = '►';
         break;
 
       case 'ArrowUp':
@@ -80,8 +77,7 @@ const createComponent = (row, language, state) => {
         break;
 
       case 'fn':
-        element.classList.add('key_service', 'key_fn');
-        element.textContent = 'fn';
+        element.classList.add('key_service');
         break;
 
       default:
