@@ -24,6 +24,11 @@ export default (state, input, render) => {
         input.focus();
         break;
 
+      case 'Tab':
+        state.value += '    ';
+        input.value = state.value;
+        break;
+      
       default: break;
     }
   });
