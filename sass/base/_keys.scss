@@ -1,0 +1,96 @@
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: $color-key;
+  border-radius: 8px;
+  color: #f7f5f8;
+  box-sizing: border-box;
+  transition: text-shadow 300ms ease-out;
+  transition: background-color 250ms ease-out;
+  transition: transform 250ms ease-out;
+
+  &:hover {
+    text-shadow: 0 0 10px #ffff,
+			0 0 30px #ffff,
+			0 0 80px #ffff;
+			color: #fff;
+  }
+}
+
+.key_service {
+  font-size: 10px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px;
+  letter-spacing: 0.6px;
+}
+
+.key_service-right {
+  justify-content: flex-end;
+}
+
+.key_delete {
+  width: 103px;
+}
+
+.key_tab {
+  width: 103px;
+}
+
+.key_caps-lock {
+  width: 115px;
+}
+
+.key_return {
+  width: 117px;
+}
+
+.key_shift {
+  width: 150px;
+}
+
+.key_cmd {
+  width: 86px;
+  justify-content: center;
+}
+
+.key_service-center {
+  justify-content: center;
+}
+
+.key_space {
+  width: 320px;
+}
+
+.key_arrow {
+  height: 30px;
+  align-self: flex-end;
+  font-size: 10px;
+}
+
+.key_arrow-up {
+  border-end-start-radius: 0px;
+  border-end-end-radius: 0px;
+}
+
+.key_arrow-down {
+  border-start-start-radius: 0px;
+  border-start-end-radius: 0px;
+}
+
+.key_arrow-left {
+  transform: rotate(180deg);
+}
+
+
+.pressed {
+  background-color: #3d3e43;
+  transform: scale(0.95);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
