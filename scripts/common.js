@@ -1,4 +1,4 @@
-const createElement = (tagName, styles = []) => {
+export const createElement = (tagName, styles = []) => {
   const element = document.createElement(tagName);
 
   if (!styles.length) {
@@ -9,4 +9,4 @@ const createElement = (tagName, styles = []) => {
   return element;
 };
 
-export default createElement;
+export const metaKeys = ['Backspace', 'Tab', 'CapsLock', 'Enter', 'Shift', 'Control', 'Alt', 'Meta', 'Meta', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];

@@ -120,6 +120,10 @@
   transform: rotate(180deg);
 }
 
+.pressed {
+  background-color: #3d3e43;
+}
+
 .text-area {
   display: flex;
   flex-direction: column;

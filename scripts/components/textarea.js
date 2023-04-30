@@ -1,14 +1,17 @@
-import createElement from '../common.js';
+import { createElement } from '../common.js';
 
 const subtitileText = 'MacBook Air';
 
-const createComponent = () => {
+const createComponent = (state) => {
+  const { value } = state; 
   const textAreaBlock = createElement('div', ['text-area']);
-  const textAreaInpit = createElement('textarea', ['text-area__input']);
+  const textAreaInput = createElement('textarea', ['text-area__input']);
   const subtitile = createElement('h3', ['text-area__subtitle']);
+
+  textAreaInput.value = value;
   subtitile.textContent = subtitileText;
 
-  textAreaBlock.append(textAreaInpit, subtitile);
+  textAreaBlock.append(textAreaInput, subtitile);
   return textAreaBlock;
 };
 

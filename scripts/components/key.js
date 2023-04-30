@@ -1,81 +1,86 @@
-import createElement from '../common.js';
+import { createElement } from '../common.js';
 
 const createComponent = (row, language) => {
   const arrowContainer = createElement('div', ['keyboard__key', 'arrow-container']);
+  const { key, code } = language;
 
-  language.forEach((item) => {
-    const key = createElement('div', ['keyboard__key', 'key']);
-    key.textContent = item;
+  key.forEach((item, index) => {
+    const element = createElement('div', ['keyboard__key', 'key']);
+    element.textContent = item;
+    element.dataset.key = code[index];
 
     switch (item) {
       case 'Backspace':
-        key.classList.add('key_service', 'key_delete', 'key_service-right');
-        key.textContent = 'delete';
+        element.classList.add('key_service', 'key_delete', 'key_service-right');
+        element.textContent = 'delete';
         break;
 
       case 'Tab':
-        key.classList.add('key_service', 'key_tab');
-        key.textContent = 'tab';
+        element.classList.add('key_service', 'key_tab');
+        element.textContent = 'tab';
         break;
 
       case 'Enter':
-        key.classList.add('key_service', 'key_return', 'key_service-right');
-        key.textContent = 'return';
+        element.classList.add('key_service', 'key_return', 'key_service-right');
+        element.textContent = 'return';
         break;
 
       case 'CapsLock':
-        key.classList.add('key_service', 'key_caps-lock');
-        key.textContent = 'caps lock';
+        element.classList.add('key_service', 'key_caps-lock');
+        element.textContent = 'caps lock';
         break;
 
       case 'Shift':
-        key.classList.add('key_service', 'key_shift');
-        key.textContent = 'shift';
+        if (code[index] === 'ShiftRight') {
+          element.classList.add('key_service-right');
+        }
+        element.classList.add('key_service', 'key_shift');
+        element.textContent = 'shift';
         break;
 
       case 'Control':
-        key.classList.add('key_service', 'key_service');
-        key.textContent = 'control';
+        element.classList.add('key_service', 'key_service');
+        element.textContent = 'control';
         break;
 
       case 'Alt':
-        key.classList.add('key_service', 'key_service-center');
-        key.textContent = 'option';
+        element.classList.add('key_service', 'key_service-center');
+        element.textContent = 'option';
         break;
 
       case 'Meta':
-        key.classList.add('key_service', 'key_cmd');
-        key.textContent = 'command';
+        element.classList.add('key_service', 'key_cmd');
+        element.textContent = 'command';
         break;
 
       case 'ArrowLeft':
-        key.classList.add('key_arrow', 'key_arrow-left');
-        key.textContent = '►';
+        element.classList.add('key_arrow', 'key_arrow-left');
+        element.textContent = '►';
         break;
 
       case 'ArrowRight':
-        key.classList.add('key_arrow', 'key_arrow-right');
-        key.textContent = '►';
+        element.classList.add('key_arrow', 'key_arrow-right');
+        element.textContent = '►';
         break;
 
       case 'ArrowUp':
-        key.classList.add('key_arrow', 'key_arrow-up');
-        key.textContent = '▲';
-        arrowContainer.append(key);
+        element.classList.add('key_arrow', 'key_arrow-up');
+        element.textContent = '▲';
+        arrowContainer.append(element);
         break;
 
       case 'ArrowDown':
-        key.classList.add('key_arrow', 'key_arrow-down');
-        key.textContent = '▼';
-        arrowContainer.append(key);
+        element.classList.add('key_arrow', 'key_arrow-down');
+        element.textContent = '▼';
+        arrowContainer.append(element);
         break;
 
       case ' ':
-        key.classList.add('key_service', 'key_space');
+        element.classList.add('key_service', 'key_space');
         break;
 
       case 'fn':
-        key.classList.add('key_service');
+        element.classList.add('key_service');
         break;
 
       default:
@@ -87,7 +92,7 @@ const createComponent = (row, language) => {
     }
 
     if (item !== 'ArrowUp' && item !== 'ArrowDown') {
-      row.append(key);
+      row.append(element);
     }
   });
 };
