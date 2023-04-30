@@ -37,6 +37,7 @@ const handleKeyDown = (e) => {
   if (!metaKeys.includes(e.key)) {
     state.value += key.textContent;
     textAreaInput.value = state.value;
+    state.position = state.value.length;
   }
 
   switch (e.key) {
@@ -68,12 +69,29 @@ const handleKeyDown = (e) => {
       console.log('down', state);
       render(state);
       break;
+
+    case 'ArrowLeft':
+      textAreaInput.focus();
+      if (state.position !== 0) {
+        state.position -= 1;
+        textAreaInput.selectionStart = state.position;
+        textAreaInput.selectionEnd = state.position;
+      }
+      break;
+
+    case 'ArrowRight':
+      textAreaInput.focus();
+      if (state.position !== state.value.length) {
+        state.position += 1;
+        textAreaInput.selectionStart = state.position;
+        textAreaInput.selectionEnd = state.position;
+      }
 /*
     case 'Meta':
       state.lang = state.lang === 'en' ? 'ru' : 'en';
       render(state);
       break;
-      */
+*/
     default: break;
   }
 
