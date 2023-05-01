@@ -1,4 +1,4 @@
-import { createElement } from '../common.js';
+import createElement from '../createElement.js';
 
 const createComponent = (row, language, state) => {
   const arrowContainer = createElement('div', ['keyboard__key', 'arrow-container']);

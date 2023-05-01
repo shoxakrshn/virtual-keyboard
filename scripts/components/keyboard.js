@@ -1,4 +1,4 @@
-import { createElement } from '../common.js';
+import createElement from '../createElement.js';
 import * as language from '../language.js';
 import createKey from './key.js';
 
