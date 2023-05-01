@@ -3,6 +3,7 @@ import createTextArea from './scripts/components/textarea.js';
 import createKeyboard from './scripts/components/keyboard.js';
 import mouseHandler from './scripts/mouseHandler.js';
 import hintSubtitile from './scripts/components/hint.js';
+import { capsLock, shift } from './scripts/common.js';
 
 const state = {
   value: '',
@@ -65,14 +66,16 @@ const handleKeyDown = (e) => {
 
     case 'CapsLock':
       state.capsLock = true;
-      setTimeout(() => render(), 100);
+      //setTimeout(() => render(), 100);
+      capsLock(state);
       break;
 
     case 'Shift':
-      state.shift = !state.shift;
-      state.lang = `${state.lang.slice(0, 2)}Shift`;
-      console.log('down', state);
-      render();
+      state.shift = true;
+      //state.lang = `${state.lang.slice(0, 2)}Shift`;
+      //console.log('down', state);
+      //render();
+      shift(state);
       break;
 
     case 'ArrowLeft':
@@ -121,14 +124,16 @@ const handleKeyUp = (e) => {
   switch (e.key) {
     case 'CapsLock':
       state.capsLock = false;
-      setTimeout(() => render(), 100);
+      //setTimeout(() => render(), 100);
+      capsLock(state);
       break;
 
     case 'Shift':
-      state.shift = !state.shift;
-      state.lang = state.lang.slice(0, 2);
-      console.log('up', state);
-      render(main);
+      state.shift = false;
+      //state.lang = state.lang.slice(0, 2);
+      //console.log('up', state);
+      //render(main);
+      shift(state);
       break;
 
     default: break;
