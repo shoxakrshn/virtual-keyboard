@@ -1,4 +1,4 @@
-export const createElement = (tagName, styles = []) => {
+const createElement = (tagName, styles = []) => {
   const element = document.createElement(tagName);
 
   if (!styles.length) {
@@ -8,3 +8,5 @@ export const createElement = (tagName, styles = []) => {
   styles.forEach((item) => element.classList.add(item));
   return element;
 };
+
+export default createElement;

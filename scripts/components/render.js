@@ -1,4 +1,4 @@
-import { createElement } from '../common.js';
+import createElement from '../createElement.js';
 import createTextArea from './textarea.js';
 import createKeyboard from './keyboard.js';
 import mouseHandler from '../mouseHandler.js';

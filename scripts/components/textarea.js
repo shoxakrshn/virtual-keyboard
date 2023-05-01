@@ -1,4 +1,4 @@
-import { createElement } from '../common.js';
+import createElement from '../createElement.js';
 
 const subtitileText = 'MacBook Air';
 
