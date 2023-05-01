@@ -23,16 +23,6 @@ export const capsLock = (state) => {
       key.textContent = upperCase;
     }
   });
-/*
-  for (let i = 0; i < keys.length; i += 1) {
-    if (keys[i].classList.contains('key_service')) {
-      continue;
-    }
-    const { textContent } = keys[i];
-    const upperCase = state.capsLock ? textContent.toUpperCase() : textContent.toLowerCase();
-    keys[i].textContent = upperCase;
-  }
-  */
 };
 
 export const changeLanguage = (state) => {

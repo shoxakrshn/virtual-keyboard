@@ -1,9 +1,14 @@
-import { createElement, metaKeys } from './scripts/common.js';
+import {
+  createElement,
+  metaKeys,
+  capsLock,
+  changeLanguage,
+} from './scripts/common.js';
+
 import createTextArea from './scripts/components/textarea.js';
 import createKeyboard from './scripts/components/keyboard.js';
 import mouseHandler from './scripts/mouseHandler.js';
 import hintSubtitile from './scripts/components/hint.js';
-import { capsLock, changeLanguage } from './scripts/common.js';
 
 const state = {
   value: '',
