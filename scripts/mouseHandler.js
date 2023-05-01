@@ -1,6 +1,6 @@
 import { capsLock, changeLanguage } from './common.js';
 
-export default (keyboard, textAreaInput, state, render) => {
+export default (keyboard, textAreaInput, state) => {
   const deleteBtn = keyboard.querySelector('.key_delete');
   const enterBtn = keyboard.querySelector('.key_return');
   const tabBtn = keyboard.querySelector('.key_tab');

@@ -32,7 +32,7 @@ const render = () => {
   const keyboard = createKeyboard(state);
   const textAreaInput = textArea.querySelector('.text-area__input');
 
-  mouseHandler(keyboard, textAreaInput, state, render);
+  mouseHandler(keyboard, textAreaInput, state);
 
   mainBlock.append(textArea, keyboard, hintSubtitile);
   //  body.append(main);
