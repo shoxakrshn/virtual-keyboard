@@ -1,6 +1,6 @@
 import { shiftMerged, merged } from './language.js';
 
-const changeLanguage = (state) => {
+const shift = (state) => {
   const keys = document.querySelectorAll('.key');
   keys.forEach((key, index) => {
     if (!key.classList.contains('key_service') && !key.classList.contains('key_arrow')) {
@@ -9,4 +9,4 @@ const changeLanguage = (state) => {
   });
 };
 
-export default changeLanguage;
+export default shift;

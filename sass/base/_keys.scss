@@ -80,11 +80,6 @@
   border-start-end-radius: 0px;
 }
 
-.key_arrow-left {
-  //transform: rotate(180deg);
-}
-
-
 .pressed {
   background-color: #3d3e43;
   transform: scale(0.95);
@@ -92,4 +87,9 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.pressed-caps {
+  background-color: #3d3e43;
+  transform: scale(0.95);
 }

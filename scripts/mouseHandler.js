@@ -1,5 +1,6 @@
 import capsLock from './capsLock.js';
-import changeLanguage from './changeLanguageShift.js';
+import changeLanguage from './changeLanguage.js';
+import shiftSwitch from './shift.js';
 
 export default (keyboard, textAreaInput, state) => {
   const deleteBtn = keyboard.querySelector('.key_delete');
@@ -11,8 +12,8 @@ export default (keyboard, textAreaInput, state) => {
   const fnBtn = keyboard.querySelector('.key_fn');
   const shiftBtn = keyboard.querySelectorAll('.key_shift');
 
-  //  const upBtn = keyboard.querySelector('.key_arrow-up');
-  //  const downBtn = keyboard.querySelector('.key_arrow-down');
+  const upBtn = keyboard.querySelector('.key_arrow-up');
+  const downBtn = keyboard.querySelector('.key_arrow-down');
 
   const keys = keyboard.querySelectorAll('.key');
   keys.forEach((key) => {
@@ -76,6 +77,7 @@ export default (keyboard, textAreaInput, state) => {
 
   capsBtn.addEventListener('click', () => {
     state.capsLock = !state.capsLock;
+    document.querySelector('.key_caps-lock').classList.toggle('pressed-caps');
     capsLock(state);
   });
 
@@ -87,14 +89,24 @@ export default (keyboard, textAreaInput, state) => {
   });
 
   shiftBtn.forEach((shift) => {
-    shift.addEventListener('mousedown', () => {
-      state.shift = true;
-      changeLanguage(state);
+    shift.addEventListener('mousedown', (e) => {
+      state.shift = !(e.getModifierState('CapsLock') || state.capsLock);
+      console.log('down', state.shift);
+      shiftSwitch(state);
     });
 
-    shift.addEventListener('mouseup', () => {
-      state.shift = false;
-      changeLanguage(state);
+    shift.addEventListener('mouseup', (e) => {
+      state.shift = e.getModifierState('CapsLock') || state.capsLock;
+      console.log('up', state.shift);
+      shiftSwitch(state);
+    });
+
+    upBtn.addEventListener('click', () => {
+      textAreaInput.focus();
+    });
+
+    downBtn.addEventListener('click', () => {
+      textAreaInput.focus();
     });
   });
 
