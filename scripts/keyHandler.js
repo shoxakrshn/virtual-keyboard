@@ -6,6 +6,7 @@ export default (state) => {
   document.addEventListener('keydown', (e) => {
     e.preventDefault();
     const textAreaInput = document.querySelector('.text-area__input');
+    textAreaInput.focus();
     const key = document.querySelector(`[data-key=${e.code}]`);
     key.classList.add('pressed');
 
