@@ -1,4 +1,5 @@
-import { capsLock, changeLanguage } from './common.js';
+import capsLock from './capsLock.js';
+import changeLanguage from './changeLanguageShift.js';
 
 export default (keyboard, textAreaInput, state) => {
   const deleteBtn = keyboard.querySelector('.key_delete');
