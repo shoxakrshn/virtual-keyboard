@@ -1,6 +1,7 @@
 import { metaKeys } from './language.js';
 import capsLock from './capsLock.js';
-import changeLanguage from './changeLanguageShift.js';
+import changeLanguage from './changeLanguage.js';
+import shift from './shift.js';
 
 export default (state) => {
   document.addEventListener('keydown', (e) => {
@@ -36,12 +37,14 @@ export default (state) => {
 
       case 'CapsLock':
         state.capsLock = true;
+        document.querySelector('.key_caps-lock').classList.add('pressed-caps');
         capsLock(state);
         break;
 
       case 'Shift':
-        state.shift = true;
-        changeLanguage(state);
+        state.shift = !(e.getModifierState('CapsLock') || state.capsLock);
+        document.querySelector(`[data-key=${e.code}]`).classList.toggle('pressed-caps');
+        shift(state);
         break;
 
       case 'ArrowLeft':
@@ -90,12 +93,14 @@ export default (state) => {
     switch (e.key) {
       case 'CapsLock':
         state.capsLock = false;
+        document.querySelector('.key_caps-lock').classList.toggle('pressed-caps');
         capsLock(state);
         break;
 
       case 'Shift':
-        state.shift = false;
-        changeLanguage(state);
+        state.shift = e.getModifierState('CapsLock') || state.capsLock;
+        document.querySelector(`[data-key=${e.code}]`).classList.remove('pressed-caps');
+        shift(state);
         break;
 
       default: break;
