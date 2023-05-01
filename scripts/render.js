@@ -1,9 +1,9 @@
-import createElement from '../createElement.js';
-import createTextArea from './textarea.js';
-import createKeyboard from './keyboard.js';
-import mouseHandler from '../mouseHandler.js';
-import hintSubtitile from './hint.js';
-import keyHandler from '../keyHandler.js';
+import createElement from './createElement.js';
+import createTextArea from './components/textarea.js';
+import createKeyboard from './components/keyboard.js';
+import mouseHandler from './mouseHandler.js';
+import hintSubtitile from './components/hint.js';
+import keyHandler from './keyHandler.js';
 
 const render = (state) => {
   const main = createElement('main', ['main-wrap']);

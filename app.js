@@ -1,4 +1,4 @@
-import render from './scripts/components/render.js';
+import render from './scripts/render.js';
 
 const state = {
   value: '',
