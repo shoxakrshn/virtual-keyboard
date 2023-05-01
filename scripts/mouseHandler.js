@@ -12,8 +12,8 @@ export default (keyboard, textAreaInput, state) => {
   const fnBtn = keyboard.querySelector('.key_fn');
   const shiftBtn = keyboard.querySelectorAll('.key_shift');
 
-  //  const upBtn = keyboard.querySelector('.key_arrow-up');
-  //  const downBtn = keyboard.querySelector('.key_arrow-down');
+  const upBtn = keyboard.querySelector('.key_arrow-up');
+  const downBtn = keyboard.querySelector('.key_arrow-down');
 
   const keys = keyboard.querySelectorAll('.key');
   keys.forEach((key) => {
@@ -99,6 +99,14 @@ export default (keyboard, textAreaInput, state) => {
       state.shift = e.getModifierState('CapsLock') || state.capsLock;
       console.log('up', state.shift);
       shiftSwitch(state);
+    });
+
+    upBtn.addEventListener('click', () => {
+      textAreaInput.focus();
+    });
+
+    downBtn.addEventListener('click', () => {
+      textAreaInput.focus();
     });
   });
 
