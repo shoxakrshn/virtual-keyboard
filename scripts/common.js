@@ -29,7 +29,6 @@ export const changeLanguage = (state) => {
   const keys = document.querySelectorAll('.key');
   keys.forEach((key, index) => {
     if (!key.classList.contains('key_service') && !key.classList.contains('key_arrow')) {
-      console.log(state);
       key.textContent = state.shift ? shiftMerged[state.lang][index] : merged[state.lang][index];
     }
   });
