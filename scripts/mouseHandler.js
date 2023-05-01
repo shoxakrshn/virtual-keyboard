@@ -28,6 +28,7 @@ export default (keyboard, textAreaInput, state) => {
       if (!key.classList.contains('key_service') && !key.classList.contains('key_arrow')) {
         state.value += e.target.textContent;
         textAreaInput.value = state.value;
+        textAreaInput.focus();
       }
     });
   });

@@ -1,8 +1,12 @@
+body {
+  margin: 0;
+}
+
 .main-wrap {
   display: flex;
   flex-direction: column;
   max-width: 977px;
-  height: 1000px;
+  height: 100vh;
   justify-content: space-evenly;
   align-items: center;
   margin: 0 auto;
@@ -12,6 +16,7 @@
   color: #26272a;
   font-family: Helvetica, sans-serif;
   font-size: 12px;
+  text-align: center;
 }
 
 .key {
