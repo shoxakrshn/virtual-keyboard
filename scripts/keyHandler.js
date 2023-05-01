@@ -30,7 +30,7 @@ export default (state) => {
         break;
 
       case 'Tab':
-        state.value += '    ';
+        state.value += '\t';
         textAreaInput.value = state.value;
         textAreaInput.focus();
         break;
