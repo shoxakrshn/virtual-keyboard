@@ -26,7 +26,7 @@ export default (keyboard, textAreaInput, state) => {
     });
 
     key.addEventListener('click', (e) => {
-      if (!key.classList.contains('key_service') && !key.classList.contains('key_arrow')) {
+      if (!key.classList.contains('key_service') && !key.classList.contains('key_arrow-left') && !key.classList.contains('key_arrow-right')) {
         state.value += e.target.textContent;
         textAreaInput.value = state.value;
         textAreaInput.focus();
@@ -99,14 +99,6 @@ export default (keyboard, textAreaInput, state) => {
       state.shift = e.getModifierState('CapsLock') || state.capsLock;
       console.log('up', state.shift);
       shiftSwitch(state);
-    });
-
-    upBtn.addEventListener('click', () => {
-      textAreaInput.focus();
-    });
-
-    downBtn.addEventListener('click', () => {
-      textAreaInput.focus();
     });
   });
 
