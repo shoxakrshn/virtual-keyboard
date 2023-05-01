@@ -3,7 +3,7 @@ import createTextArea from './scripts/components/textarea.js';
 import createKeyboard from './scripts/components/keyboard.js';
 import mouseHandler from './scripts/mouseHandler.js';
 import hintSubtitile from './scripts/components/hint.js';
-import { capsLock, shift } from './scripts/common.js';
+import { capsLock, changeLanguage } from './scripts/common.js';
 
 const state = {
   value: '',
@@ -66,16 +66,12 @@ const handleKeyDown = (e) => {
 
     case 'CapsLock':
       state.capsLock = true;
-      //setTimeout(() => render(), 100);
       capsLock(state);
       break;
 
     case 'Shift':
       state.shift = true;
-      //state.lang = `${state.lang.slice(0, 2)}Shift`;
-      //console.log('down', state);
-      //render();
-      shift(state);
+      changeLanguage(state);
       break;
 
     case 'ArrowLeft':
@@ -113,7 +109,7 @@ const handleKeyDown = (e) => {
   if (e.key === 'Control' && state.pressed) {
     state.lang = state.lang === 'en' ? 'ru' : 'en';
     localStorage.setItem('lang', state.lang);
-    render();
+    changeLanguage(state);
     state.pressed = false;
   }
 };
@@ -124,16 +120,12 @@ const handleKeyUp = (e) => {
   switch (e.key) {
     case 'CapsLock':
       state.capsLock = false;
-      //setTimeout(() => render(), 100);
       capsLock(state);
       break;
 
     case 'Shift':
       state.shift = false;
-      //state.lang = state.lang.slice(0, 2);
-      //console.log('up', state);
-      //render(main);
-      shift(state);
+      changeLanguage(state);
       break;
 
     default: break;
