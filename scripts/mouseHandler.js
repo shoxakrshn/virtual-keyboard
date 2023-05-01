@@ -49,7 +49,7 @@ export default (keyboard, textAreaInput, state) => {
   });
 
   tabBtn.addEventListener('click', () => {
-    state.value += '    ';
+    state.value += '\t';
     textAreaInput.value = state.value;
     textAreaInput.focus();
   });
