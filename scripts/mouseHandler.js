@@ -1,4 +1,6 @@
-export default (keyboard, textAreaInput, state, render) => {
+import { capsLock, changeLanguage } from './common.js';
+
+export default (keyboard, textAreaInput, state) => {
   const deleteBtn = keyboard.querySelector('.key_delete');
   const enterBtn = keyboard.querySelector('.key_return');
   const tabBtn = keyboard.querySelector('.key_tab');
@@ -72,28 +74,25 @@ export default (keyboard, textAreaInput, state, render) => {
 
   capsBtn.addEventListener('click', () => {
     state.capsLock = !state.capsLock;
-    render();
+    capsLock(state);
   });
 
   fnBtn.addEventListener('click', () => {
     const { lang } = state;
     state.lang = lang === 'en' ? 'ru' : 'en';
-    render();
+    localStorage.setItem('lang', state.lang);
+    changeLanguage(state);
   });
 
   shiftBtn.forEach((shift) => {
     shift.addEventListener('mousedown', () => {
-      state.shift = !state.shift;
-      state.lang = `${state.lang.slice(0, 2)}Shift`;
-      console.log('down', state);
-      render();
+      state.shift = true;
+      changeLanguage(state);
     });
 
     shift.addEventListener('mouseup', () => {
-      state.shift = !state.shift;
-      state.lang = state.lang.slice(0, 2);
-      console.log('up', state);
-      render();
+      state.shift = false;
+      changeLanguage(state);
     });
   });
 

@@ -78,3 +78,44 @@ export const meta = {
   key: ['fn', 'Control', 'Alt', 'Meta', ' ', 'Meta', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'],
   code: ['fn', 'ControlLeft', 'AltLeft', 'MetaLeft', 'Space', 'MetaRight', 'AltRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'],
 };
+
+const enMerged = [
+  ...en.digitRow.key,
+  ...en.letterRowFirst.key,
+  ...en.letterRowMiddle.key,
+  ...en.letterRowLast.key,
+  ...meta.key,
+];
+const ruMerged = [
+  ...ru.digitRow.key,
+  ...ru.letterRowFirst.key,
+  ...ru.letterRowMiddle.key,
+  ...ru.letterRowLast.key,
+  ...meta.key,
+];
+
+const enShiftMerged = [
+  ...enShift.digitRow.key,
+  ...enShift.letterRowFirst.key,
+  ...enShift.letterRowMiddle.key,
+  ...enShift.letterRowLast.key,
+  ...meta.key,
+];
+const ruShiftMerged = [
+  ...ruShift.digitRow.key,
+  ...ruShift.letterRowFirst.key,
+  ...ruShift.letterRowMiddle.key,
+  ...ruShift.letterRowLast.key,
+  ...meta.key,
+];
+
+export const merged = {
+  en: enMerged,
+  ru: ruMerged,
+
+};
+
+export const shiftMerged = {
+  en: enShiftMerged,
+  ru: ruShiftMerged,
+};

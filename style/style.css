@@ -24,9 +24,7 @@
   border-radius: 8px;
   color: #f7f5f8;
   box-sizing: border-box;
-  transition: text-shadow 300ms ease-out;
-  transition: background-color 250ms ease-out;
-  transition: transform 250ms ease-out;
+  transition: all 250ms ease-out;
 }
 .key:hover {
   text-shadow: 0 0 10px white, 0 0 30px white, 0 0 80px white;
@@ -92,10 +90,6 @@
 .key_arrow-down {
   border-start-start-radius: 0px;
   border-start-end-radius: 0px;
-}
-
-.key_arrow-left {
-  transform: rotate(180deg);
 }
 
 .pressed {

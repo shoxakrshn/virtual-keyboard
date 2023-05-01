@@ -1,4 +1,10 @@
-import { createElement, metaKeys } from './scripts/common.js';
+import {
+  createElement,
+  metaKeys,
+  capsLock,
+  changeLanguage,
+} from './scripts/common.js';
+
 import createTextArea from './scripts/components/textarea.js';
 import createKeyboard from './scripts/components/keyboard.js';
 import mouseHandler from './scripts/mouseHandler.js';
@@ -6,7 +12,7 @@ import hintSubtitile from './scripts/components/hint.js';
 
 const state = {
   value: '',
-  lang: 'en',
+  lang: localStorage.getItem('lang') || 'en',
   capsLock: false,
   shift: false,
   position: 0,
@@ -26,7 +32,7 @@ const render = () => {
   const keyboard = createKeyboard(state);
   const textAreaInput = textArea.querySelector('.text-area__input');
 
-  mouseHandler(keyboard, textAreaInput, state, render);
+  mouseHandler(keyboard, textAreaInput, state);
 
   mainBlock.append(textArea, keyboard, hintSubtitile);
   //  body.append(main);
@@ -65,14 +71,12 @@ const handleKeyDown = (e) => {
 
     case 'CapsLock':
       state.capsLock = true;
-      render();
+      capsLock(state);
       break;
 
     case 'Shift':
-      state.shift = !state.shift;
-      state.lang = `${state.lang.slice(0, 2)}Shift`;
-      console.log('down', state);
-      render();
+      state.shift = true;
+      changeLanguage(state);
       break;
 
     case 'ArrowLeft':
@@ -95,6 +99,7 @@ const handleKeyDown = (e) => {
     /*
     case 'Meta':
       state.lang = state.lang === 'en' ? 'ru' : 'en';
+      localStorage.setItem('lang', state.lang);
       render(state);
       break;
     */
@@ -108,7 +113,8 @@ const handleKeyDown = (e) => {
 
   if (e.key === 'Control' && state.pressed) {
     state.lang = state.lang === 'en' ? 'ru' : 'en';
-    render();
+    localStorage.setItem('lang', state.lang);
+    changeLanguage(state);
     state.pressed = false;
   }
 };
@@ -119,14 +125,12 @@ const handleKeyUp = (e) => {
   switch (e.key) {
     case 'CapsLock':
       state.capsLock = false;
-      render();
+      capsLock(state);
       break;
 
     case 'Shift':
-      state.shift = !state.shift;
-      state.lang = state.lang.slice(0, 2);
-      console.log('up', state);
-      render(main);
+      state.shift = false;
+      changeLanguage(state);
       break;
 
     default: break;
