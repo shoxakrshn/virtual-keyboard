@@ -1,5 +1,3 @@
-import { shiftMerged, merged } from './language.js';
-
 export const createElement = (tagName, styles = []) => {
   const element = document.createElement(tagName);
 
@@ -10,5 +8,3 @@ export const createElement = (tagName, styles = []) => {
   styles.forEach((item) => element.classList.add(item));
   return element;
 };
-
-export const metaKeys = ['Backspace', 'Tab', 'CapsLock', 'Enter', 'Shift', 'Control', 'Alt', 'Meta', 'Meta', 'Alt', 'ArrowLeft', 'ArrowRight'];

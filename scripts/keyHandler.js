@@ -1,4 +1,4 @@
-import { metaKeys } from './common.js';
+import { metaKeys } from './language.js';
 import capsLock from './capsLock.js';
 import changeLanguage from './changeLanguageShift.js';
 
