@@ -120,4 +120,5 @@ export const shiftMerged = {
   ru: ruShiftMerged,
 };
 
-export const metaKeys = ['Backspace', 'Tab', 'CapsLock', 'Enter', 'Shift', 'Control', 'Alt', 'Meta', 'Meta', 'Alt', 'ArrowLeft', 'ArrowRight'];
+export const metaKeys = ['Backspace', 'Tab', 'CapsLock', 'Enter', 'Shift', 'Control', 'Alt', 'Meta', 'Meta', 'Alt', ' '];
+export const metaCodes = ['Backspace', 'Tab', 'Enter', 'ShiftRight', 'ShiftLeft', 'CapsLock', 'ControlLeft', 'AltLeft', 'MetaLeft', 'Space', 'MetaRight', 'AltRight', 'ArrowLeft', 'ArrowRight'];
