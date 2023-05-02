@@ -25,11 +25,18 @@ export default (state) => {
         break;
 
       case 'Enter':
+
         insert(state, '\n', textAreaInput);
+
         break;
 
       case 'Tab':
         insert(state, '\t', textAreaInput);
+        break;
+
+      case ' ':
+        insert(state, ' ', textAreaInput);
+        console.log(state)
         break;
 
       case 'CapsLock':

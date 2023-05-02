@@ -15,9 +15,12 @@ export const insertTabSpaceReturn = (state, type, textAreaInput) => {
     }
     state.value = newWord;
     textAreaInput.value = state.value;
-    textAreaInput.selectionStart = state.position;
-    textAreaInput.selectionEnd = state.position;
     textAreaInput.focus();
+
+    setTimeout(() => {
+      textAreaInput.selectionStart = state.position;
+      textAreaInput.selectionEnd = state.position;
+    }, 0);
   }
 };
 
