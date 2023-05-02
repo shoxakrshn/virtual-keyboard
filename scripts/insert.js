@@ -13,6 +13,15 @@ export const insert = (state, type, textAreaInput) => {
 };
 
 export const insertBackspace = (state, textAreaInput) => {
+  if (textAreaInput.selectionStart === 0 && textAreaInput.selectionEnd === state.value.length) {
+    state.value = '';
+    textAreaInput.value = state.value;
+    textAreaInput.selectionStart = 0;
+    textAreaInput.selectionEnd = 0;
+    state.position = 0;
+    return;
+  }
+
   state.position = textAreaInput.selectionStart; // Запоминаем начальную позицию курсора
 
   if (state.position > 0) {
