@@ -1,7 +1,7 @@
 import capsLock from './capsLock.js';
 import changeLanguage from './changeLanguage.js';
 import shiftSwitch from './shift.js';
-import insert from './insertTabSpaceReturn.js';
+import { insert, insertBackspace } from './insert.js';
 
 export default (keyboard, textAreaInput, state) => {
   const deleteBtn = keyboard.querySelector('.key_delete');
@@ -28,20 +28,15 @@ export default (keyboard, textAreaInput, state) => {
     });
 
     key.addEventListener('click', (e) => {
-      if (!key.classList.contains('key_service') && !key.classList.contains('key_arrow-left') && !key.classList.contains('key_arrow-right')) {
-        state.value += e.target.textContent;
-        textAreaInput.value = state.value;
+      if (!key.classList.contains('key_service')) {
+        insert(state, e.target.textContent, textAreaInput);
         textAreaInput.focus();
       }
     });
   });
 
   deleteBtn.addEventListener('click', () => {
-    const { value } = state;
-    console.log(value);
-    state.value = value.slice(0, -1);
-    textAreaInput.value = state.value;
-    textAreaInput.focus();
+    insertBackspace(state, textAreaInput);
   });
 
   enterBtn.addEventListener('click', () => {
@@ -56,6 +51,7 @@ export default (keyboard, textAreaInput, state) => {
     insert(state, ' ', textAreaInput);
   });
 
+  /*
   state.position = state.value.length;
   leftBtn.addEventListener('click', () => {
     textAreaInput.focus();
@@ -76,7 +72,7 @@ export default (keyboard, textAreaInput, state) => {
       textAreaInput.selectionEnd = state.position;
     }
   });
-
+  */
   capsBtn.addEventListener('click', () => {
     state.capsLock = !state.capsLock;
     document.querySelector('.key_caps-lock').classList.toggle('pressed-caps');

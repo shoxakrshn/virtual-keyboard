@@ -2,7 +2,7 @@ import { metaKeys } from './language.js';
 import capsLock from './capsLock.js';
 import changeLanguage from './changeLanguage.js';
 import shift from './shift.js';
-import insert from './insertTabSpaceReturn.js';
+import { insert, insertBackspace } from './insert.js';
 
 export default (state) => {
   document.addEventListener('keydown', (e) => {
@@ -13,15 +13,12 @@ export default (state) => {
     key.classList.add('pressed');
 
     if (!metaKeys.includes(e.key)) {
-      state.value += key.textContent;
-      textAreaInput.value = state.value;
-      state.position = state.value.length;
+      insert(state, key.textContent, textAreaInput);
     }
 
     switch (e.key) {
       case 'Backspace':
-        state.value = state.value.slice(0, -1);
-        textAreaInput.value = state.value;
+        insertBackspace(state, textAreaInput);
         break;
 
       case 'Enter':
@@ -36,7 +33,6 @@ export default (state) => {
 
       case ' ':
         insert(state, ' ', textAreaInput);
-        console.log(state)
         break;
 
       case 'CapsLock':
@@ -51,6 +47,7 @@ export default (state) => {
         shift(state);
         break;
 
+      /*
       case 'ArrowLeft':
         textAreaInput.focus();
         if (state.position !== 0) {
