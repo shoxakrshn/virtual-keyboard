@@ -89,13 +89,11 @@ export default (keyboard, textAreaInput, state) => {
   shiftBtn.forEach((shift) => {
     shift.addEventListener('mousedown', (e) => {
       state.shift = !(e.getModifierState('CapsLock') || state.capsLock);
-      console.log('down', state.shift);
       shiftSwitch(state);
     });
 
     shift.addEventListener('mouseup', (e) => {
       state.shift = e.getModifierState('CapsLock') || state.capsLock;
-      console.log('up', state.shift);
       shiftSwitch(state);
     });
   });
