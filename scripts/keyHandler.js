@@ -2,6 +2,7 @@ import { metaKeys } from './language.js';
 import capsLock from './capsLock.js';
 import changeLanguage from './changeLanguage.js';
 import shift from './shift.js';
+import insert from './insertTabSpaceReturn.js';
 
 export default (state) => {
   document.addEventListener('keydown', (e) => {
@@ -24,15 +25,11 @@ export default (state) => {
         break;
 
       case 'Enter':
-        state.value += '\n';
-        textAreaInput.value = state.value;
-        textAreaInput.focus();
+        insert(state, '\n', textAreaInput);
         break;
 
       case 'Tab':
-        state.value += '\t';
-        textAreaInput.value = state.value;
-        textAreaInput.focus();
+        insert(state, '\t', textAreaInput);
         break;
 
       case 'CapsLock':
