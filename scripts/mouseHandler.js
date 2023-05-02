@@ -1,11 +1,13 @@
 import capsLock from './capsLock.js';
 import changeLanguage from './changeLanguage.js';
 import shiftSwitch from './shift.js';
+import insert from './insertTabSpaceReturn.js';
 
 export default (keyboard, textAreaInput, state) => {
   const deleteBtn = keyboard.querySelector('.key_delete');
   const enterBtn = keyboard.querySelector('.key_return');
   const tabBtn = keyboard.querySelector('.key_tab');
+  const spaceBtn = keyboard.querySelector('.key_space');
   const leftBtn = keyboard.querySelector('.key_arrow-left');
   const rightBtn = keyboard.querySelector('.key_arrow-right');
   const capsBtn = keyboard.querySelector('.key_caps-lock');
@@ -43,15 +45,15 @@ export default (keyboard, textAreaInput, state) => {
   });
 
   enterBtn.addEventListener('click', () => {
-    state.value += '\n';
-    textAreaInput.value = state.value;
-    textAreaInput.focus();
+    insert(state, '\n', textAreaInput);
   });
 
   tabBtn.addEventListener('click', () => {
-    state.value += '\t';
-    textAreaInput.value = state.value;
-    textAreaInput.focus();
+    insert(state, '\t', textAreaInput);
+  });
+
+  spaceBtn.addEventListener('click', () => {
+    insert(state, ' ', textAreaInput);
   });
 
   state.position = state.value.length;
