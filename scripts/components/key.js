@@ -12,7 +12,7 @@ const createComponent = (row, language, state) => {
     switch (item) {
       case 'Backspace':
         element.classList.add('key_service', 'key_delete', 'key_service-right');
-        element.textContent = 'delete';
+        element.textContent = 'backspace';
         break;
 
       case 'Tab':
