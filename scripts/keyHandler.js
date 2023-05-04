@@ -42,7 +42,7 @@ export default (state) => {
         break;
 
       case 'Shift':
-        state.shift = !(e.getModifierState('CapsLock') || state.capsLock);
+        state.shift = true;
         document.querySelector(`[data-key=${e.code}]`).classList.toggle('pressed-caps');
         shift(state);
         break;
@@ -99,7 +99,7 @@ export default (state) => {
         break;
 
       case 'Shift':
-        state.shift = e.getModifierState('CapsLock') || state.capsLock;
+        state.shift = false;
         document.querySelector(`[data-key=${e.code}]`).classList.remove('pressed-caps');
         shift(state);
         break;
