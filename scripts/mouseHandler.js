@@ -87,12 +87,12 @@ export default (keyboard, textAreaInput, state) => {
   });
 
   shiftBtn.forEach((shift) => {
-    shift.addEventListener('mousedown', (e) => {
+    shift.addEventListener('mousedown', () => {
       state.shift = true;
       shiftSwitch(state);
     });
 
-    shift.addEventListener('mouseup', (e) => {
+    shift.addEventListener('mouseup', () => {
       state.shift = false;
       shiftSwitch(state);
     });
